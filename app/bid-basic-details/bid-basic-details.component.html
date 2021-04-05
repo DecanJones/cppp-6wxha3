@@ -1,0 +1,127 @@
+<!-- <template-editor></template-editor> -->
+
+
+<!-- <mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile rowspan="1" colspan="1">
+    <div>
+      <mat-label>Ministry : </mat-label><b>{{data.workable.ministry}}</b>
+    </div>
+    <div>
+      <mat-label>Department : </mat-label><b>{{data.workable.department}}</b>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="1" colspan="1">2</mat-grid-tile>
+  <mat-grid-tile rowspan="1" colspan="2">3</mat-grid-tile>
+  <mat-grid-tile rowspan="1" colspan="1">4</mat-grid-tile>
+  <mat-grid-tile rowspan="1" colspan="1">5</mat-grid-tile>
+  <mat-grid-tile rowspan="1" colspan="1">6</mat-grid-tile>
+  <mat-grid-tile rowspan="1" colspan="2">7</mat-grid-tile>
+</mat-grid-list> -->
+
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{data.name}} <i class="material-icons info">info</i></h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="container">
+      <div class="body">
+        <mat-grid-list cols="12">
+          <mat-grid-tile [colspan]="6">
+            <div class="tile-content-left">
+              <span>Ministry : </span><b> {{data.workable.ministry}}</b><br>
+              <span>Department : </span><b> {{data.workable.department}}</b>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="6">
+            <div class="tile-content-left">
+              <span>Buyer Name : </span><b> {{data.workable.buyer_name}}</b>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4">
+            <div class="tile-content-left">
+              Project Title: 
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="8">
+            <div class="tile-content-left">
+              <mat-form-field>
+                <input type="text" [(ngModel)]="data.workable.project_title" matInput>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+            <div class="tile-content-left">
+              Bid Classification :
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+            <div class="tile-content-left">
+              <mat-form-field>
+                <select [(ngModel)]="data.workable.bid_classification" matNativeControl required>
+                  <option *ngFor="let classification of data.workable.bid_classifications" [value]="classification">{{classification}}</option>
+                </select>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+            <div class="tile-content-left">
+              Bid Type :
+            </div> 
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+            <div class="tile-content-left">
+              <mat-form-field>
+                <select [(ngModel)]="data.workable.bid_type" matNativeControl required>
+                  <option *ngFor="let type of data.workable.bid_types" [value]="type">{{type}}</option>
+                </select>
+              </mat-form-field>  
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4">
+            <div class="tile-content-left">
+              Bid Duration (days) : 
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="8">
+            <div class="tile-content-left">
+              <mat-form-field>
+                <input type="number" [min]=1 [(ngModel)]="data.workable.duration" matInput>
+              </mat-form-field>  
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4">
+            <div class="tile-content-left">
+              Bid Value : 
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="8">
+            <div class="tile-content-left">
+              <mat-radio-group [(ngModel)]="data.workable.bid_value_type">
+                <mat-radio-button *ngFor="let type of value_types" [value]="type">
+                {{type}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4">
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="8" *ngIf="data.workable.bid_value_type">
+            <div class="tile-content-left">
+              <mat-form-field class="col-md-4">
+                <input type="text" [(ngModel)]="data.workable.bid_value_amount" disabled="{{data.workable.bid_value_type != 'absolute'}}" matInput>
+              </mat-form-field>
+              <mat-form-field class="col-md-4">
+                <input type="text" [(ngModel)]="data.workable.bid_value_percentage" disabled="{{data.workable.bid_value_type == 'absolute'}}" matInput>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
